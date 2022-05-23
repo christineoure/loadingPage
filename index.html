@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Loading page</title>
+</head>
+<body>
+    <div class="loading_page">
+        <div class="counter">
+            <p>Loading</p>
+            <h1>0%</h1>
+            <hr/>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var counter = 0;
+            var c = 0;
+            var i =setInterval(function(){
+                $(".loading_page .counter h1").html(c + "%");
+                $(".loading_page .counter hr").css("width",c + "%");
+                counter++;
+                c++;
+                if (counter == 101) {
+                    clearInterval(i);
+                }
+            },50);
+        });
+    </script>
+</body>
+</html>
